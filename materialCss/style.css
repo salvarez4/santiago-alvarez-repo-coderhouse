@@ -1,0 +1,79 @@
+.buscar-container {
+    background: #2ea44f;
+    width: 35vw;
+    height: 35vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buscar {
+    margin: 20px;
+}
+
+.buscar > h2{
+    color: red;
+    margin-bottom: 15px;
+} 
+
+.buscar > div {
+    display: inline-block;
+    position: relative;
+}
+
+.buscar > div:after {
+    content: "";
+    background: black;
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    top: 40px;
+    right: 2px;
+    transform: rotate(135deg);
+}
+
+.buscar > div > input {
+    color: #000000;
+    font-size: 16px;
+    background: transparent;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    border: solid 3px black;
+    outline: none;
+    border-radius: 35px;
+    transition: width 0.5s;
+}
+
+.buscar > div > input::placeholder {
+    color: black;
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+}
+
+.buscar > div > input {
+    opacity: 1;
+}
+
+.buscar > div > input:focus,
+.buscar > div > input:not(:placeholder-shown) {
+    width: 250px;
+}
+
+.header {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "logo nav search-container"
+      ". . .";
+    grid-area: header;
+  }
+  
+  .logo { grid-area: logo; }
+  
+  .nav { grid-area: nav; }
+  
+  .search-container { grid-area: search-container; }

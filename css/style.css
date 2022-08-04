@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0%;
+    border: 0%;
+    font-family: sans-serif;
+}
+
+.grid-header {  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header";
+  }
+  
+  .header {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      "logo nav search-container"
+      ". . .";
+    grid-area: header;
+  }
+  
+  .logo { grid-area: logo; }
+  
+  .nav { grid-area: nav; }
+  
+  .search-container { grid-area: search-container; }
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+.logo {
+    display: inline-block;
+    align-items: flex start;
+    order: 2;
+}
+
+.logo img {
+    height: 50px;
+    display: inline-block;
+    padding-bottom: 2.5%;
+}
+
+.nav{
+    position: relative;
+}
+
+
+nav a {
+    font-weight: 500px;
+    display: inline-block;
+    padding: 2.5%;
+}
+
+nav a:hover {
+    color: white
+}
+
+.search-1 {
+    padding: 2.5%;
+    color: #eee;
+    background: linear-gradient(to bottom right,
+    #b1227A, #429AEE);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    order: 3;
+    position: relative;
+    justify-content: center;
+}
+
+.search-1 :is(input,button) {
+    color: inherit;
+    border: none;
+    background: transparent;
+    outline: none
+}
+
+.search--input {
+    width: 10%;
+    transition: width .5s;
+}
+
+.search--btn {
+    width:95%;
+    height: 95%;
+    display:grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.search-1:focus-within input {
+    width: 65%;
+}
+
+
+@media (max-width:700px) {
+    header {
+        flex-direction: column-reverse;
+    }
+}
+
+body {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header"
+      "aside main main"
+      "footer footer footer";
+  }
+  
+  aside { 
+    grid-area: aside; 
+    background-color: brown; 
+    display: flex; 
+    align-items: center;  
+    border: #000000;   
+    width: 15vw;
+}
+  
+  main { 
+    grid-area: main; 
+    background-color: chocolate;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    height: auto;
+    position: relative;
+    width: 83.6vw;
+    height: 35vw;
+    border: #000000;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,70|Open+Sans:400,700');
+
+:root{
+    --color:#3c3163;
+    --transition-time: 0.5ss;
+}
+
+a{
+    color: inherit;
+}
+
+.cards-wrapper {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4rem;
+    padding: 4rem;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.card {
+    font-family: 'Hebbo';
+    --bg-filter-opacity: 0.5;
+    background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-ing);
+    height: 4.5em;
+    width: 4.5em;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 1em;
+    padding: 1em;
+    display: flex;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 5em -1em black;
+    transition: all, var(--transition-time);
+    position:relative;
+    overflow: hidden;
+    border: 5px solid #ccc;
+    text-decoration: none;
+    grid-area: imagenes;
+}
+
+.card:hover {
+    transform: rotate(0);
+}
+
+.card h1 {
+    margin: 0;
+    font-size: 0.6em;
+    line-height: 1em;
+}
+
+.card p {
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+    margin-top: 0.5em;
+    line-height: 2em;
+}
+
+.car .tags {
+    display: flex;
+}
+
+.card .tags .tag {
+    font-size: 0.75em;
+    background: rgba(255,255,255,0.5);
+    border-radius: 0.3em;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+    background: var(--color);
+    color:white;
+}
+
+.card .date {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.75em;
+    padding: 1em;
+    line-height: 1em;
+    opacity: .8;
+}
+
+.card::before, .card::after {
+    content: '';
+    transform: scale(0);
+    transform-origin: top left;
+    border-radius: 50%;
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    z-index: -5;
+    transition: all, var(--transition-time);
+    transition-timing-function: ease-in-out;
+}
+
+.card::before {
+    background: #ddd;
+    width: 250%;
+    height: 250%;
+}
+
+.card::after {
+    background: white;
+    width: 200%;
+    height: 200%;
+}
+
+.card:hover {
+    color: var(--color);
+}
+
+section {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header";
+}
+
+.imagenes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+}
+  
+  footer { 
+    grid-area: footer; 
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 65.7.1vw;
+}
+  
+  header { 
+    grid-area: header; 
+    display: flex;
+    height: 5vw;
+    box-sizing: border-box;
+    border: #000000;
+
+    position: relative;
+    width: 65.7.1vw;
+    height: 5vw;
+
+    background: #00256f;
+    border: 2.5px solid #000000;
+    align-items:flex-start;
+    padding: 10px;
+
+    flex-direction: column-reverse;
+    justify-content: flex-start space-around;
+}
+
+.icon{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    transition-property: 
+    outline-offset, outline-color, 
+    background-color;
+    transition-duration: .25s;
+}
+
+.icon:hover{
+    outline-offset: 4px;
+}
+
+.icon:hover i{
+   animation: shake .25s; 
+}
+
+.icon--instagram:hover {
+    background-image: 
+    radial-gradient(circle at 30% 107%,
+    #fdf497 0%, #fdf497 5%,
+    #fd5949 45%, #d6249f 60%
+    #285AEB 90%);
+    outline-color: #a02d76
+}
+
+.icon--twiter:hover{
+    background-color: #1da1f2;
+    outline-color: #1da1f2;
+}
+
+.icon--linkedin:hover {
+    background-color: #0077b5;
+    outline-color: #0077b5;
+}
+
+.icon--github:hover {
+    background-color: #2ea44f;
+    outline-color: #2ea44f;
+}
+
+@keyframes shake {
+    10%{transform: rotate(15deg);}
+    20%{transform: rotate(-15deg);}
+    30%{transform: rotate(15deg);}
+    40%{transform: rotate(-15deg);}
+}
+
+.icon--github img {
+    height: 3.1vw;
+}
+
+.icon--twiter img {
+    height: 3.1vw;
+}
+
+.icon--instagram img {
+    height: 3.1vw;
+}
+
+.icon--linkedin img {
+    height: 3.1vw;
+    align-items: center;
+}
+
+.caja-generos {
+    font-weight: 600;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.generos :hover{
+    color: white
+}
+
+.generos {
+    text-decoration: none;
+    color: black
+}
+
+/* .formulario{
+    /* debo buscar como poner ejemplos en las barras y como animarlo */
+
+
+
+
+
+  
